@@ -19,6 +19,11 @@ export default function Home() {
   return (
     <>
       <Helmet>
+        <link
+          href="https://icons8.com/icon/80357/office-phone"
+          rel="shortcut icon"
+          type="image/x-icon"
+        />
         <title>Phonebook</title>
       </Helmet>
       <div style={styles.container}>

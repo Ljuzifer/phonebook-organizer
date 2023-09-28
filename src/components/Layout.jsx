@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import AppBar from './AppBar/AppBar';
-import { Toaster } from 'react-hot-toast';
 
 export default function Layout() {
   return (
@@ -10,8 +9,6 @@ export default function Layout() {
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-
-      <Toaster />
     </div>
   );
 }
