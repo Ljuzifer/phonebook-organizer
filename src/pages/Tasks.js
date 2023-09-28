@@ -5,6 +5,7 @@ import TaskList from 'components/TaskList/TaskList';
 import TaskEditor from 'components/TaskEditor/TaskEditor';
 import { fetchTasks } from 'redux/tasks/operations';
 import { selectLoading } from 'redux/tasks/selectors';
+import { TasksGlobalStyle } from './Tasks.styled';
 
 export default function Tasks() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ export default function Tasks() {
       <TaskEditor />
       <div>{isLoading && 'Request in progress...'}</div>
       <TaskList />
+      <TasksGlobalStyle />
     </>
   );
 }

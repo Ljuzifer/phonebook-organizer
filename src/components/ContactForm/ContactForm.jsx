@@ -12,7 +12,7 @@ const formSchema = Yup.object().shape({
       'Wrong name format'
     )
     .required('Must be filled'),
-  phone: Yup.string()
+  number: Yup.string()
     .matches(
       /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
       'Wrong number format'
@@ -24,7 +24,7 @@ export default function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
-  const initialValues = { name: '', phone: '' };
+  const initialValues = { name: '', number: '' };
 
   return (
     <Formik
@@ -55,8 +55,8 @@ export default function ContactForm() {
 
         <label>
           Number
-          <Field type="tel" name="phone" placeholder="Enter number" />
-          <ErrorMessage name="phone" component="b" />
+          <Field type="tel" name="number" placeholder="Enter number" />
+          <ErrorMessage name="number" component="b" />
         </label>
 
         <button type="submit">Add contact</button>

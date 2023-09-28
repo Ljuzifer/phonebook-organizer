@@ -7,6 +7,10 @@ import Contacts from 'pages/Contacts';
 import Tasks from 'pages/Tasks';
 import { refresh } from 'redux/auth/authOperations';
 import { useAuth } from 'hooks';
+import Register from 'pages/Register';
+import Login from 'pages/Login';
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 import { GlobalStyle } from './GlobalStyle';
 
 export const App = () => {
@@ -20,15 +24,38 @@ export const App = () => {
   return isRefreshing ? (
     <b>Refreshing session...</b>
   ) : (
-    <Routes>
-      <Route path="/" element={<Layout />} />
-      <Route index element={<Home />} />
-      {/* <Route path="/register" /> */}
-      {/* <Route path="/login" /> */}
-      <Route path="/contacts" element={<Contacts />} />
-      <Route path="/tasks" element={<Tasks />} />
-
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<Register />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute redirectTo="/contacts" component={<Login />} />
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<Contacts />} />
+            }
+          />
+          <Route
+            path="/tasks"
+            element={<PrivateRoute redirectTo="/tasks" component={<Tasks />} />}
+          />
+        </Route>
+      </Routes>
       <GlobalStyle />
-    </Routes>
+    </>
   );
 };

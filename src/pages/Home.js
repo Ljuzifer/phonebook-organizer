@@ -1,3 +1,6 @@
+import { Helmet } from 'react-helmet';
+import { HomeGlobalStyle } from './Home.styled';
+
 const styles = {
   container: {
     minHeight: 'calc(100vh - 50px)',
@@ -14,13 +17,19 @@ const styles = {
 
 export default function Home() {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>
-        Phonebook manager welcome page{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
-      </h1>
-    </div>
+    <>
+      <Helmet>
+        <title>Phonebook</title>
+      </Helmet>
+      <div style={styles.container}>
+        <h1 style={styles.title}>
+          Phonebook manager welcome page{' '}
+          <span role="img" aria-label="Greeting icon">
+            💁‍♀️
+          </span>
+        </h1>
+        <HomeGlobalStyle />
+      </div>
+    </>
   );
 }

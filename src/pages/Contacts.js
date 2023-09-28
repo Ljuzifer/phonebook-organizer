@@ -10,6 +10,7 @@ import Message from 'components/Message/Message';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectTotalContacts } from 'redux/contacts/selectors';
 import { Box } from 'components/GlobalStyle';
+import { ContactsGlobalStyle } from './Contacts.styled';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ export default function Contacts() {
       ) : (
         <ContactList />
       )}
+      <ContactsGlobalStyle />
     </Box>
   );
 }
