@@ -18,7 +18,7 @@ const handlePending = state => {
   state.isLoading = true;
   toast.loading('Waiting...', {
     id: toastLoading,
-    // position: 'top-right',
+    position: 'top-right',
   });
 };
 

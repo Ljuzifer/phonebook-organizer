@@ -1,5 +1,7 @@
+import { useAuth } from 'hooks';
 import { Helmet } from 'react-helmet';
 import { HomeGlobalStyle } from './Home.styled';
+import Register from './Register';
 
 const styles = {
   container: {
@@ -16,25 +18,30 @@ const styles = {
 };
 
 export default function Home() {
+  const { isLoggedIn } = useAuth();
   return (
     <>
       <Helmet>
         <link
-          href="https://icons8.com/icon/80357/office-phone"
+          href="../../public/icons8-office-phone-32.png"
           rel="shortcut icon"
           type="image/x-icon"
         />
         <title>Phonebook</title>
       </Helmet>
-      <div style={styles.container}>
-        <h1 style={styles.title}>
-          Phonebook manager welcome page{' '}
-          <span role="img" aria-label="Greeting icon">
-            💁‍♀️
-          </span>
-        </h1>
-        <HomeGlobalStyle />
-      </div>
+      {!isLoggedIn ? (
+        <Register />
+      ) : (
+        <div style={styles.container}>
+          <h1 style={styles.title}>
+            Phonebook manager welcome page{' '}
+            <span role="img" aria-label="Greeting icon">
+              💁‍♀️
+            </span>
+          </h1>
+          <HomeGlobalStyle />
+        </div>
+      )}
     </>
   );
 }
