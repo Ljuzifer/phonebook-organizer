@@ -1,39 +1,34 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { selectTotalContacts } from 'redux/selectors';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { Message } from './Message/Message';
-import { GlobalStyle, Box } from './GlobalStyle';
 import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
-import { CountOfContacts } from './CountOfContacts/CountOfContacts';
-import { Toaster } from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout';
+import Home from 'pages/Home';
+import Contacts from 'pages/Contacts';
+import Tasks from 'pages/Tasks';
+import { refresh } from 'redux/auth/authOperations';
+import { useAuth } from 'hooks';
+import { GlobalStyle } from './GlobalStyle';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const contactsLength = useSelector(selectTotalContacts);
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refresh());
   }, [dispatch]);
 
-  return (
-    <Box>
-      <h1>Phonebook</h1>
-      <ContactForm />
-
-      <h2>Contacts</h2>
-      <CountOfContacts />
-      <Filter />
-      {contactsLength === 0 ? (
-        <Message message="Oops! Contact's list is empty..." />
-      ) : (
-        <ContactList />
-      )}
+  return isRefreshing ? (
+    <b>Refreshing session...</b>
+  ) : (
+    <Routes>
+      <Route path="/" element={<Layout />} />
+      <Route index element={<Home />} />
+      {/* <Route path="/register" /> */}
+      {/* <Route path="/login" /> */}
+      <Route path="/contacts" element={<Contacts />} />
+      <Route path="/tasks" element={<Tasks />} />
 
       <GlobalStyle />
-      <Toaster />
-    </Box>
+    </Routes>
   );
 };

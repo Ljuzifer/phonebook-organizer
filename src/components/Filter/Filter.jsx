@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { searchFilter } from 'redux/filterSlice';
-import { selectFilter } from 'redux/selectors';
+import { searchFilter } from 'redux/contacts/filterSlice';
+import { selectFilter } from 'redux/contacts/selectors';
 import { Search } from './Filter.styled';
 
-export const Filter = () => {
+export default function Filter() {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
 
@@ -21,4 +21,4 @@ export const Filter = () => {
       />
     </Search>
   );
-};
+}

@@ -1,8 +1,11 @@
 import { useSelector } from 'react-redux';
-import { selectTotalContacts, selectVisibleContacts } from 'redux/selectors';
+import {
+  selectTotalContacts,
+  selectVisibleContacts,
+} from 'redux/contacts/selectors';
 import { ItemsCount } from './CountOfContacts.styled';
 
-export const CountOfContacts = () => {
+export default function CountOfContacts() {
   const visibleContacts = useSelector(selectVisibleContacts);
   const totalContacts = useSelector(selectTotalContacts);
 
@@ -19,4 +22,4 @@ export const CountOfContacts = () => {
       </ItemsCount>
     </>
   );
-};
+}

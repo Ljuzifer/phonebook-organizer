@@ -1,10 +1,10 @@
 import { HiMicrophone } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
+import { fetchDeleteContact } from 'redux/contacts/operations';
 // import { deleteContact } from 'redux/contactsSlice';
-import { fetchDeleteContact } from 'redux/operations';
 // import { deleteContact } from 'redux/actions';
 
-export const ContactItem = ({ contact }) => {
+export default function ContactItem({ contact }) {
   // const contacts = useSelector(getContacts);
   const { id, name, phone } = contact;
   const dispatch = useDispatch();
@@ -23,4 +23,4 @@ export const ContactItem = ({ contact }) => {
       </div>
     </>
   );
-};
+}

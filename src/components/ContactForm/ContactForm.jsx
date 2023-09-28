@@ -1,8 +1,8 @@
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { fetchAddContact } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+import { fetchAddContact } from 'redux/contacts/operations';
 import { FormThumb } from './ContactForm.styled';
 
 const formSchema = Yup.object().shape({
@@ -20,7 +20,7 @@ const formSchema = Yup.object().shape({
     .required('Must be filled'),
 });
 
-export const ContactForm = () => {
+export default function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
@@ -63,4 +63,4 @@ export const ContactForm = () => {
       </FormThumb>
     </Formik>
   );
-};
+}
