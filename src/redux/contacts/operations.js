@@ -45,6 +45,24 @@ export const fetchDeleteContact = createAsyncThunk(
   }
 );
 
+export const fetchEditContact = createAsyncThunk(
+  'contacts/editContact',
+  async ({ name, number, contactId }, thunkAPI) => {
+    try {
+      const response = await axios.patch(
+        `${CONTACTS_URL}/contacts/${contactId}`,
+        {
+          name,
+          number,
+        }
+      );
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 // export const toggleCompleted = createAsyncThunk(
 //   'tasks/toggleCompleted',
 //   async (task, thunkAPI) => {

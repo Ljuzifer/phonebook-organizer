@@ -2,6 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 export const HomeGlobalStyle = createGlobalStyle`
 body{
-    background-image: url('https://images.pexels.com/photos/7244562/pexels-photo-7244562.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('https://kartinki.pics/uploads/posts/2021-07/1625655366_42-kartinkin-com-p-biblioteka-art-art-krasivo-47.jpg');
 }
 `;

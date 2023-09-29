@@ -2,6 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 export const TasksGlobalStyle = createGlobalStyle`
 body{
-    background-image: url('https://blog.cakap.com/wp-content/uploads/2023/04/to-do-list-artinya.jpg');
+    background-image: url('https://kartinki.pics/uploads/posts/2021-07/1625655309_10-kartinkin-com-p-biblioteka-art-art-krasivo-11.jpg');
 }
 `;

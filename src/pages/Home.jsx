@@ -19,11 +19,12 @@ const styles = {
 
 export default function Home() {
   const { isLoggedIn } = useAuth();
+
   return (
     <>
       <Helmet>
         <link
-          href="../../public/icons8-office-phone-32.png"
+          href="https://icons8.com/icon/80357/office-phone"
           rel="shortcut icon"
           type="image/x-icon"
         />

@@ -1,33 +1,57 @@
+import { ErrorMessage, Field, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import * as Yup from 'yup';
 import { logIn } from 'redux/auth/authOperations';
-import { Form } from './LoginForm.styled';
+import { FormThumb } from './LoginForm.styled';
+
+const formSchema = Yup.object({
+  email: Yup.string().email().required('Must be filled'),
+  password: Yup.string().min(8).required('Must be filled'),
+});
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
-  };
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   const form = e.currentTarget;
+  //   dispatch(
+  //     logIn({
+  //       email: form.elements.email.value,
+  //       password: form.elements.password.value,
+  //     })
+  //   );
+  //   form.reset();
+  // };
+
+  const initialValues = { email: '', password: '' };
 
   return (
-    <Form onSubmit={handleSubmit} autoComplete="off">
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </Form>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={formSchema}
+      onSubmit={(values, actions) => {
+        dispatch(logIn({ ...values }));
+        actions.resetForm();
+      }}
+    >
+      <FormThumb autoComplete="off">
+        <label>
+          Email
+          <Field type="email" name="email" placeholder="Enter your name" />
+          <ErrorMessage name="name" component="b" />
+        </label>
+        <label>
+          Password
+          <Field
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+          />
+          <ErrorMessage name="password" component="b" />
+        </label>
+        <button type="submit">Log In</button>
+      </FormThumb>
+    </Formik>
   );
 };
