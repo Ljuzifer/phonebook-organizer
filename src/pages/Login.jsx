@@ -6,9 +6,8 @@ import { Box } from 'components/GlobalStyle';
 export default function Login() {
   return (
     <Box>
-      <Helmet>
-        <title>Login</title>
-      </Helmet>
+      <Helmet title="Login" />
+
       <h2>Login Form</h2>
       <h5>Please sign up and let's work!!!</h5>
       <LoginForm />

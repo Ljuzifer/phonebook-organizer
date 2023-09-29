@@ -7,9 +7,8 @@ import { Box } from 'components/GlobalStyle';
 export default function Register() {
   return (
     <Box>
-      <Helmet>
-        <title>Registration</title>
-      </Helmet>
+      <Helmet title="Registration" />
+
       <RegisterForm />
       <RegisterStyle />
     </Box>

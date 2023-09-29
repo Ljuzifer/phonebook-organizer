@@ -78,7 +78,7 @@ export const GoBackLink = styled(Link)`
   text-transform: uppercase;
   letter-spacing: 1.02em;
 
-  &:active {
+  &.active {
     color: midnightblue;
   }
 

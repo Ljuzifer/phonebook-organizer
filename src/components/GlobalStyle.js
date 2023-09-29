@@ -84,7 +84,8 @@ export const Box = styled.div`
   } */
 
   h1,
-  h2 {
+  h2,
+  h3 {
     color: midnightblue;
     border: 4px outset midnightblue;
     background-color: lightgoldenrodyellow;
