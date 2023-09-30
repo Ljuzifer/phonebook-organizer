@@ -16,7 +16,7 @@ import { filterReducer } from './contacts/filterSlice';
 import { tasksReducer } from './tasks/tasksSlice';
 
 // Persisting token field from auth slice to localstorage
-const authPersistConfig = {
+const persistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
@@ -24,7 +24,7 @@ const authPersistConfig = {
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
+    auth: persistReducer(persistConfig, authReducer),
     contacts: contactsReducer,
     filter: filterReducer,
     tasks: tasksReducer,

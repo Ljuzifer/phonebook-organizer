@@ -2,6 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 export const TasksGlobalStyle = createGlobalStyle`
 body{
-    background-image: url('https://kartinki.pics/uploads/posts/2021-07/1625655309_10-kartinkin-com-p-biblioteka-art-art-krasivo-11.jpg');
+    background-image: url('https://damion.club/uploads/posts/2022-09/1664292127_23-damion-club-p-biblioteka-art-instagram-30.jpg');
 }
 `;
