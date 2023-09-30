@@ -13,23 +13,27 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { contactsReducer } from './contacts/contactsSlice';
 import { filterReducer } from './contacts/filterSlice';
-import { tasksReducer } from './tasks/tasksSlice';
+import { rootReducer } from './rootReducer';
 
-// Persisting token field from auth slice to localstorage
-const persistConfig = {
+const authPersistConfig = {
   key: 'auth',
   storage,
   whitelist: ['token'],
 };
 
+const tastksPersistConfig = {
+  key: 'tasks',
+  storage,
+};
+
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(persistConfig, authReducer),
+    auth: persistReducer(authPersistConfig, authReducer),
     contacts: contactsReducer,
     filter: filterReducer,
-    tasks: tasksReducer,
+    tasks: persistReducer(tastksPersistConfig, rootReducer),
   },
-  // devTools: process.env.NODE_ENV === 'development',
+  devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

@@ -1,8 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { contactsReducer } from './contactsSlice';
-import { filterReducer } from './filterSlice';
+import { tasksReducer } from './tasks/tasksSlice';
 
 export const rootReducer = combineReducers({
-  contacts: contactsReducer,
-  filter: filterReducer,
+  tasks: tasksReducer,
 });
