@@ -1,6 +1,6 @@
 import { Box } from 'components/GlobalStyle';
 import { Helmet } from 'react-helmet';
-import { NotFoundGlobalStyle } from './NotFound.styled';
+import { NotFoundGlobalStyle } from './NotFoundPage.styled';
 
 export default function NotFound() {
   return (

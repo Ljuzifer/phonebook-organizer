@@ -2,38 +2,38 @@ import { styled } from 'styled-components';
 
 export const EditForm = styled.form`
   display: flex;
+  gap: 13px;
+  background-color: rgba(202, 202, 202, 0.8);
   width: 100%;
-  gap: 4px;
-  margin-bottom: 12px;
-`;
+  margin: auto;
+  border: 2px outset black;
+  border-radius: 13px;
+  padding: 20px;
+  margin-bottom: 28px;
 
-export const EditInput = styled.input`
-  flex-grow: 1;
-  padding: 8px;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
-  font: inherit;
-  line-height: 16px;
-  letter-spacing: 0.01em;
-  resize: none;
-`;
-
-export const EditButton = styled.button`
-  border: none;
-  font: inherit;
-  cursor: pointer;
-  outline: none;
-  padding: 0 8px;
-  border-radius: 4px;
-  background-color: #3f51b5;
-  color: #fff;
-
-  &:hover,
-  &:focus {
-    background-color: #303f9f;
+  button {
+    font-weight: bold;
+    width: 120px;
+    height: 48px;
+    padding: 4px 8px;
+    border-radius: 13px;
+    text-transform: uppercase;
+    background-color: rgba(144, 144, 144, 0.8);
   }
 
-  &:active {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  button:hover,
+  button:focus {
+    background-color: black;
+    color: white;
+  }
+
+  input {
+    /* margin-top: 8px; */
+    width: 100%;
+    padding: 2px 13px;
+    border-radius: 13px;
+    outline: none;
+    /* text-align: center; */
+    /* background-color: rgba(255, 255, 255, 0); */
   }
 `;

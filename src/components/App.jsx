@@ -15,7 +15,7 @@ const LoginPage = lazy(() => import('../pages/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
 const TasksPage = lazy(() => import('../pages/Tasks'));
 const ContactEditPage = lazy(() => import('../pages/ContactEdit'));
-const NotFoundPage = lazy(() => import('../pages/NotFounfPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
