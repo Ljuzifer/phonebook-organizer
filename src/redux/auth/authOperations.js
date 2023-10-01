@@ -24,7 +24,6 @@ export const register = createAsyncThunk(
       const res = await axios.post('/users/signup', credentials);
       // After successful registration, add the token to the HTTP header
       setToken(res.data.token);
-      console.log(res);
       return res.data;
     } catch (error) {
       alert('Sorry, such email exists already...');
