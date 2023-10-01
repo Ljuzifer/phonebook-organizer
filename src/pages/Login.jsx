@@ -11,6 +11,7 @@ export default function Login() {
       <h2>Login Form</h2>
       <h5>Please sign up and let's work!!!</h5>
       <LoginForm />
+
       <LoginGlobalStyle />
     </Box>
   );

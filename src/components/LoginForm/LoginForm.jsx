@@ -12,18 +12,6 @@ const formSchema = Yup.object({
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
-  //   const form = e.currentTarget;
-  //   dispatch(
-  //     logIn({
-  //       email: form.elements.email.value,
-  //       password: form.elements.password.value,
-  //     })
-  //   );
-  //   form.reset();
-  // };
-
   const initialValues = { email: '', password: '' };
 
   return (
@@ -32,7 +20,7 @@ export const LoginForm = () => {
       validationSchema={formSchema}
       onSubmit={(values, actions) => {
         dispatch(logIn({ ...values }));
-        actions.resetForm();
+        // actions.resetForm();
       }}
     >
       <FormThumb autoComplete="off">

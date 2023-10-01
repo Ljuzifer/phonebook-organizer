@@ -41,7 +41,7 @@ export default function RegisterForm() {
         validationSchema={formSchema}
         onSubmit={(values, actions) => {
           dispatch(register({ ...values }));
-          actions.resetForm();
+          // actions.resetForm();
         }}
       >
         <FormThumb autoComplete="off">

@@ -47,6 +47,24 @@ export default function ContactEdit() {
       number: values.number,
       contactId,
     };
+
+    const editedName = values.name;
+    if (
+      allContacts.some(
+        contact => contact.name.toLowerCase() === editedName.toLowerCase()
+      )
+    ) {
+      toast.dismiss(toastLoading);
+      toast.success(
+        `Oops! ${editedName} is already exists!!! Please change it...`,
+        {
+          duration: 2000,
+          position: 'top-center',
+        }
+      );
+      return;
+    }
+
     dispatch(fetchEditContact(updatedContact));
     toast.dismiss(toastLoading);
     toast.success(`Contact of ${updatedContact.name} is updated!`, {
