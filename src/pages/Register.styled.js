@@ -2,6 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 export const RegisterStyle = createGlobalStyle`
 body{
-    background-image: url('https://damion.club/uploads/posts/2022-09/1664292183_7-damion-club-p-biblioteka-art-instagram-11.jpg');
+    background-image: url('https://kartinki.pics/uploads/posts/2021-07/thumbs/1625655412_56-kartinkin-com-p-biblioteka-art-art-krasivo-61.jpg');
 }
 `;
