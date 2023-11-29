@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/goit-react-hw-08-phonebook/static/css/main.7cda0caf.css",
-    "main.js": "/goit-react-hw-08-phonebook/static/js/main.f5b75ee7.js",
-    "static/js/946.776592a7.chunk.js": "/goit-react-hw-08-phonebook/static/js/946.776592a7.chunk.js",
+    "main.js": "/goit-react-hw-08-phonebook/static/js/main.b26ba3c9.js",
+    "static/js/905.233b722d.chunk.js": "/goit-react-hw-08-phonebook/static/js/905.233b722d.chunk.js",
     "static/js/452.30f6de00.chunk.js": "/goit-react-hw-08-phonebook/static/js/452.30f6de00.chunk.js",
     "static/js/652.ac6426cc.chunk.js": "/goit-react-hw-08-phonebook/static/js/652.ac6426cc.chunk.js",
     "static/js/899.ce56b1d1.chunk.js": "/goit-react-hw-08-phonebook/static/js/899.ce56b1d1.chunk.js",
@@ -14,10 +14,11 @@
     "static/js/378.8975af84.chunk.js": "/goit-react-hw-08-phonebook/static/js/378.8975af84.chunk.js",
     "static/js/651.bf1c4152.chunk.js": "/goit-react-hw-08-phonebook/static/js/651.bf1c4152.chunk.js",
     "static/js/14.2b5947a4.chunk.js": "/goit-react-hw-08-phonebook/static/js/14.2b5947a4.chunk.js",
+    "static/media/home.jpg": "/goit-react-hw-08-phonebook/static/media/home.af12a45630dd0e647adb.jpg",
     "index.html": "/goit-react-hw-08-phonebook/index.html",
     "main.7cda0caf.css.map": "/goit-react-hw-08-phonebook/static/css/main.7cda0caf.css.map",
-    "main.f5b75ee7.js.map": "/goit-react-hw-08-phonebook/static/js/main.f5b75ee7.js.map",
-    "946.776592a7.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/946.776592a7.chunk.js.map",
+    "main.b26ba3c9.js.map": "/goit-react-hw-08-phonebook/static/js/main.b26ba3c9.js.map",
+    "905.233b722d.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/905.233b722d.chunk.js.map",
     "452.30f6de00.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/452.30f6de00.chunk.js.map",
     "652.ac6426cc.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/652.ac6426cc.chunk.js.map",
     "899.ce56b1d1.chunk.js.map": "/goit-react-hw-08-phonebook/static/js/899.ce56b1d1.chunk.js.map",
@@ -32,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.f5b75ee7.js"
+    "static/js/main.b26ba3c9.js"
   ]
 }
