@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import notFoundImage from '../images/not_found.jpg';
 
 export const NotFoundGlobalStyle = createGlobalStyle`
 body{
-    background-image: url('../../public/img/not_found.jpg');
+    background-image: url(${notFoundImage});
 }
 `;

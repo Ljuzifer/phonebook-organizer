@@ -1,10 +1,13 @@
 import { Form } from 'formik';
 import { Link } from 'react-router-dom';
 import { createGlobalStyle, styled } from 'styled-components';
+import editImage from '../images/contact_edit.jpg';
 
 export const ContactEditStyle = createGlobalStyle`
 body{
-    background-image: url('https://kartinki.pics/uploads/posts/2021-07/1625655312_1-kartinkin-com-p-biblioteka-art-art-krasivo-1.jpg');
+    /* background-image: url('https://kartinki.pics/uploads/posts/2021-07/1625655312_1-kartinkin-com-p-biblioteka-art-art-krasivo-1.jpg'); */
+
+    background-image: url(${editImage});
 }
 `;
 
