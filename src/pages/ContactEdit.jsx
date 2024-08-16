@@ -1,31 +1,15 @@
 import { useRef } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { ErrorMessage, Field, Formik } from 'formik';
-import * as Yup from 'yup';
 import { RiArrowLeftCircleFill } from 'react-icons/ri';
 import { fetchEditContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 import { toast, Toaster } from 'react-hot-toast';
-import { toastLoading } from 'redux/contacts/contactsSlice';
-import { ContactEditStyle, FormThumb, GoBackLink } from './ContactEdit.styled';
 import { Box } from 'components/GlobalStyle';
-
-const formSchema = Yup.object().shape({
-  name: Yup.string()
-    .matches(
-      /^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$/,
-      'Wrong name format'
-    )
-    .required('Must be filled'),
-  number: Yup.string()
-    .matches(
-      /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/,
-      'Wrong number format'
-    )
-    .required('Must be filled'),
-});
+import { ContactEditStyle, FormThumb, GoBackLink } from './ContactEdit.styled';
+import { contactSchema } from 'schemas/contactSchema';
 
 export default function ContactEdit() {
   const dispatch = useDispatch();
@@ -34,27 +18,31 @@ export default function ContactEdit() {
   const backLocationRef = useRef(location.state?.from ?? '/');
   const { contactId } = useParams();
   const allContacts = useSelector(selectContacts);
-  const currentContact = allContacts.find(contact => contact.id === contactId);
+
+  const currentContact = allContacts.find(contact => contact._id === contactId);
+  const withoutCurrentContact = allContacts.filter(
+    contact => contact.name !== currentContact.name
+  );
 
   const initialValues = {
     name: currentContact ? currentContact.name : '',
-    number: currentContact ? currentContact.number : '',
+    phone: currentContact ? currentContact.phone : '',
   };
 
   const handleSubmit = values => {
     const updatedContact = {
       name: values.name,
-      number: values.number,
+      phone: values.phone,
       contactId,
     };
 
     const editedName = values.name;
     if (
-      allContacts.some(
+      withoutCurrentContact.some(
         contact => contact.name.toLowerCase() === editedName.toLowerCase()
       )
     ) {
-      toast.dismiss(toastLoading);
+      // toast.dismiss(toastLoading);
       toast.success(
         `Oops! ${editedName} is already exists!!! Please change it...`,
         {
@@ -66,7 +54,7 @@ export default function ContactEdit() {
     }
 
     dispatch(fetchEditContact(updatedContact));
-    toast.dismiss(toastLoading);
+    // toast.dismiss(toastLoading);
     toast.success(`Contact of ${updatedContact.name} is updated!`, {
       duration: 2000,
       position: 'top-center',
@@ -77,23 +65,26 @@ export default function ContactEdit() {
   };
 
   return (
-    <>
+    <HelmetProvider>
       <GoBackLink to={backLocationRef.current}>
         <RiArrowLeftCircleFill /> Go back
       </GoBackLink>
 
       <Box>
-        <Helmet title="Edit contact" />
+        <Helmet>
+          <title>Edit contact</title>
+        </Helmet>
 
         <h2>Let's edit your contact</h2>
 
         <Formik
           initialValues={initialValues}
-          validationSchema={formSchema}
+          validationSchema={contactSchema}
           onSubmit={handleSubmit}
         >
           <FormThumb>
             <label>
+              Contact's name
               <Field
                 type="text"
                 name="name"
@@ -102,12 +93,13 @@ export default function ContactEdit() {
               <ErrorMessage name="name" component="b" />
             </label>
             <label>
+              Contact's phone
               <Field
                 type="tel"
-                name="number"
-                placeholder={`${currentContact.number}`}
+                name="phone"
+                placeholder={`${currentContact.phone}`}
               />
-              <ErrorMessage name="number" component="b" />
+              <ErrorMessage name="phone" component="b" />
             </label>
             <button type="submit">Confirm changes</button>
           </FormThumb>
@@ -115,6 +107,6 @@ export default function ContactEdit() {
         <Toaster />
         <ContactEditStyle />
       </Box>
-    </>
+    </HelmetProvider>
   );
 }

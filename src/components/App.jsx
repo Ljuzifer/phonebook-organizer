@@ -1,13 +1,12 @@
-import { lazy, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { lazy } from 'react';
+// import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
-import { refresh } from 'redux/auth/authOperations';
-import { useAuth } from 'hooks';
+// import { refresh } from 'redux/auth/authOperations';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { GlobalStyle } from './GlobalStyle';
-import LoadingSpinnerComponent from 'react-spinners-components';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
@@ -18,16 +17,13 @@ const ContactEditPage = lazy(() => import('../pages/ContactEdit'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(refresh());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refresh());
+  // }, [dispatch]);
 
-  return isRefreshing ? (
-    <LoadingSpinnerComponent type={'Gear'} color={'black'} size={'220px'} />
-  ) : (
+  return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -66,6 +62,8 @@ export const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+
+      <Toaster />
       <GlobalStyle />
     </>
   );

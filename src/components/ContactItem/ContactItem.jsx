@@ -9,19 +9,31 @@ import { ListItemLink, DelBtnItem, ListItem } from './ContactItem.styled';
 
 export default function ContactItem({ contact }) {
   // const contacts = useSelector(getContacts);
-  const { id, name, number } = contact;
+  const { _id, name, phone, email, avatarURL } = contact;
   const dispatch = useDispatch();
   const location = useLocation();
 
-  const onContactDelete = () => dispatch(fetchDeleteContact(id));
+  const onContactDelete = () => dispatch(fetchDeleteContact(_id));
 
   return (
     <ListItem>
-      <ListItemLink to={`/contacts/${id}`} state={{ from: location }}>
+      <ListItemLink to={`/contacts/${_id}`} state={{ from: location }}>
+        {/* <div style={{ width: '100%', height: '100%' }}> */}
+        <img src={avatarURL} alt="Contact's avatar" />
+        {/* </div> */}
         <HiMicrophone size={22} />
         <div>
           <span>{name}</span>
-          <b>{number} </b>
+          {phone && (
+            <p>
+              phone: <b>{phone}</b>
+            </p>
+          )}
+          {email && (
+            <p>
+              email: <b>{email}</b>
+            </p>
+          )}
         </div>
       </ListItemLink>
       <DelBtnItem type="button" onClick={onContactDelete}>

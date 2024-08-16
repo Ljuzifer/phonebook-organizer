@@ -1,15 +1,17 @@
 import TaskItem from 'components/TaskItem/TaskItem';
-import { useTasks } from 'hooks/useTasks';
 import { List } from './TaskList.styled';
+import { useSelector } from 'react-redux';
+import { selectAllTasks } from 'redux/tasks/selectors';
 
 export default function TaskList() {
-  const { tasks } = useTasks();
+  const tasks = useSelector(selectAllTasks);
+  console.log(tasks);
 
   return (
     <List>
-      {tasks.map(({ id, text, completed }) => (
-        <li key={id}>
-          <TaskItem id={id} text={text} completed={completed} />
+      {tasks.map(({ _id, text, completed }) => (
+        <li key={_id}>
+          <TaskItem id={_id} text={text} completed={completed} />
         </li>
       ))}
     </List>

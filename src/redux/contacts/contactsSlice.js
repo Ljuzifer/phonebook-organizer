@@ -7,7 +7,7 @@ import {
   fetchEditContact,
 } from './operations';
 
-export const toastLoading = toast.loading('', { position: 'top-center' });
+// export const toastLoading = toast.loading('', { position: 'top-center' });
 
 const initialState = {
   items: [],
@@ -17,10 +17,10 @@ const initialState = {
 
 const handlePending = state => {
   state.isLoading = true;
-  toast.loading('Waiting...', {
-    id: toastLoading,
-    position: 'top-center',
-  });
+  // toast.loading('Waiting...', {
+  //   id: toastLoading,
+  //   position: 'top-center',
+  // });
 };
 
 const handleFulfilled = (state, action) => {
@@ -28,7 +28,7 @@ const handleFulfilled = (state, action) => {
   state.error = null;
   state.items = action.payload;
 
-  toast.dismiss(toastLoading);
+  // toast.dismiss(toastLoading);
   toast.success('You`ve got this!', {
     duration: 2800,
     position: 'top-center',
@@ -39,7 +39,7 @@ const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 
-  toast.dismiss(toastLoading);
+  // toast.dismiss(toastLoading);
   toast.error(state.error, {
     duration: 2800,
     position: 'top-center',
@@ -47,30 +47,39 @@ const handleRejected = (state, action) => {
 };
 
 const handleAddFulfilled = (state, action) => {
-  // state.isLoading = false;
-  // state.error = null;
-  // state.items.push(action.payload);
+  state.isLoading = false;
+  state.error = null;
+  state.items.push(action.payload);
+  // const newState = {
+  //   isLoading: false,
+  //   error: null,
+  //   items: [...state.items, action.payload],
+  // };
 
-  toast.dismiss(toastLoading);
+  // toast.dismiss(toastLoading);
   toast.success('Contact is added!', {
     duration: 2800,
     position: 'top-center',
   });
-
-  return { ...state, items: [...state.items, action.payload] };
+  // return newState;
+  // return { ...state, items: [...state.items, action.payload] };
 };
 
-const handleDeleteContact = (state, action) => {
-  toast.dismiss(toastLoading);
+const handleDeleteFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  state.items = state.items.filter(item => item._id !== action.payload._id);
+
+  // toast.dismiss(toastLoading);
   toast.success('Contact is deleted!', {
     duration: 2800,
     position: 'top-center',
   });
 
-  return {
-    ...state,
-    items: state.items.filter(item => item.id !== action.payload.id),
-  };
+  // return {
+  //   ...state,
+  //   items: state.items.filter(item => item._id !== action.payload),
+  // };
 };
 
 const handleEditFulfilled = (state, action) => {
@@ -79,15 +88,20 @@ const handleEditFulfilled = (state, action) => {
   //   duration: 2800,
   //   position: 'top-center',
   // });
+  state.isLoading = false;
+  state.error = null;
+  state.items = state.items.map(contact =>
+    contact._id === action.payload._id ? action.payload : contact
+  );
 
-  const newState = {
-    ...state,
-    items: state.items.map(contact =>
-      contact.id === action.payload.id ? action.payload : contact
-    ),
-  };
+  // const newState = {
+  //   ...state,
+  //   items: state.items.map(contact =>
+  //     contact._id === action.payload._id ? action.payload : contact
+  //   ),
+  // };
 
-  return newState;
+  // return newState;
 };
 
 const contactsSlice = createSlice({
@@ -102,7 +116,7 @@ const contactsSlice = createSlice({
       .addCase(fetchAddContact.fulfilled, handleAddFulfilled)
       .addCase(fetchAddContact.rejected, handleRejected)
       .addCase(fetchDeleteContact.pending, handlePending)
-      .addCase(fetchDeleteContact.fulfilled, handleDeleteContact)
+      .addCase(fetchDeleteContact.fulfilled, handleDeleteFulfilled)
       .addCase(fetchDeleteContact.rejected, handleRejected)
       .addCase(fetchEditContact.pending, handlePending)
       .addCase(fetchEditContact.fulfilled, handleEditFulfilled)

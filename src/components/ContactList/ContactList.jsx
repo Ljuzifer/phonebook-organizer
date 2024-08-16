@@ -5,11 +5,14 @@ import { List } from './ContactList.styled';
 
 export default function ContactList() {
   const visibleContacts = useSelector(selectVisibleContacts);
+  const sortedContacts = visibleContacts.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   return (
     <List>
-      {visibleContacts.map(contact => (
-        <li key={contact.id}>
+      {sortedContacts.map(contact => (
+        <li key={contact._id}>
           <ContactItem contact={contact} />
         </li>
       ))}

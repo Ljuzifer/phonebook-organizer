@@ -1,11 +1,14 @@
 import { useDispatch } from 'react-redux';
-import { deleteTask, toggleCompleted } from 'redux/tasks/tasksSlice';
 import { Checkbox, DelButton, TaskThumb, Text } from './TaskItem.styled';
+import { fetchDeleteTask, fetchToggleTask } from 'redux/tasks/operations';
 
 export default function TaskItem({ id, text, completed }) {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteTask(id));
-  const handleToggle = () => dispatch(toggleCompleted(id));
+  const handleDelete = () => {
+    dispatch(fetchDeleteTask(id));
+  };
+  const handleToggle = () =>
+    dispatch(fetchToggleTask({ taskId: id, completed }));
 
   return (
     <TaskThumb>

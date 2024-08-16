@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { addTask } from 'redux/tasks/tasksSlice';
 import { EditForm } from './TaskEditor.styled';
+import { fetchAddTask } from 'redux/tasks/operations';
 
 export default function TaskEditor() {
   const dispatch = useDispatch();
@@ -9,8 +9,9 @@ export default function TaskEditor() {
     e.preventDefault();
     const form = e.currentTarget;
     const text = form.elements.text.value;
+
     if (text !== '') {
-      dispatch(addTask(text));
+      dispatch(fetchAddTask({ text }));
       form.reset();
       return;
     }
@@ -19,7 +20,8 @@ export default function TaskEditor() {
 
   return (
     <EditForm onSubmit={handleSubmit}>
-      <input name="text" />
+      {/* <label htmlFor="task" name="text"></label> */}
+      <input id="task" name="text" placeholder="Enter your task" />
       <button type="submit">Add task</button>
     </EditForm>
   );

@@ -24,5 +24,12 @@ export const Wrapper = styled.div`
 
   p {
     font-weight: 700;
+    margin-right: 2px;
+  }
+
+  img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
   }
 `;

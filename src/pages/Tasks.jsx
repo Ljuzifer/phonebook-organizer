@@ -1,19 +1,32 @@
 // import { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import TaskList from 'components/TaskList/TaskList';
 import TaskEditor from 'components/TaskEditor/TaskEditor';
 import { TasksGlobalStyle } from './Tasks.styled';
 import { Box } from 'components/GlobalStyle';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchTasks } from 'redux/tasks/operations';
 
 export default function Tasks() {
-  return (
-    <Box>
-      <Helmet title="Your tasks" />
+  const dispatch = useDispatch();
 
-      <TaskEditor />
-      <TaskList />
-      <TasksGlobalStyle />
-    </Box>
+  useEffect(() => {
+    dispatch(fetchTasks());
+  }, [dispatch]);
+
+  return (
+    <HelmetProvider>
+      <Box>
+        <Helmet>
+          <title>Your tasks</title>
+        </Helmet>
+
+        <TaskEditor />
+        <TaskList />
+        <TasksGlobalStyle />
+      </Box>
+    </HelmetProvider>
   );
 }

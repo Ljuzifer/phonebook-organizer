@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
-  "version": "0.1.0",
+  "name": "phonebook-organizer",
+  "version": "1.0.1",
   "private": true,
-  "homepage": "https://ljuzifer.github.io/goit-react-hw-08-phonebook/",
+  "homepage": "https://ljuzifer.github.io/phonebook-organizer/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.6",
     "@testing-library/jest-dom": "^5.16.3",
@@ -15,6 +15,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-helmet": "^6.1.0",
+    "react-helmet-async": "^2.0.5",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
     "react-redux": "^8.1.2",
@@ -50,5 +51,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-private-property-in-object": "^7.24.7"
   }
 }

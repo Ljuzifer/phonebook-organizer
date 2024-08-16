@@ -18,16 +18,20 @@ export const LoginForm = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={formSchema}
-      onSubmit={(values, actions) => {
-        dispatch(logIn({ ...values }));
-        // actions.resetForm();
+      onSubmit={async (values, actions) => {
+        try {
+          await dispatch(logIn({ ...values })).unwrap();
+          actions.resetForm();
+        } catch (error) {
+          console.error('Failed to login:', error);
+        }
       }}
     >
       <FormThumb autoComplete="off">
         <label>
           Email
-          <Field type="email" name="email" placeholder="Enter your name" />
-          <ErrorMessage name="name" component="b" />
+          <Field type="email" name="email" placeholder="Enter your email" />
+          <ErrorMessage name="email" component="b" />
         </label>
         <label>
           Password
