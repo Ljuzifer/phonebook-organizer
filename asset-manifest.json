@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/phonebook-organizer/static/css/main.7cda0caf.css",
-    "main.js": "/phonebook-organizer/static/js/main.034e1b13.js",
+    "main.js": "/phonebook-organizer/static/js/main.0474cd95.js",
     "static/js/905.9baffb0e.chunk.js": "/phonebook-organizer/static/js/905.9baffb0e.chunk.js",
     "static/js/309.49882133.chunk.js": "/phonebook-organizer/static/js/309.49882133.chunk.js",
     "static/js/314.cf32a91b.chunk.js": "/phonebook-organizer/static/js/314.cf32a91b.chunk.js",
     "static/js/461.c73d160c.chunk.js": "/phonebook-organizer/static/js/461.c73d160c.chunk.js",
-    "static/js/825.fe4ec78a.chunk.js": "/phonebook-organizer/static/js/825.fe4ec78a.chunk.js",
+    "static/js/825.73ca0b20.chunk.js": "/phonebook-organizer/static/js/825.73ca0b20.chunk.js",
     "static/js/545.1e9dfeff.chunk.js": "/phonebook-organizer/static/js/545.1e9dfeff.chunk.js",
     "static/js/333.4da1cd1e.chunk.js": "/phonebook-organizer/static/js/333.4da1cd1e.chunk.js",
     "static/js/50.b158aa5c.chunk.js": "/phonebook-organizer/static/js/50.b158aa5c.chunk.js",
@@ -23,12 +23,12 @@
     "static/media/not_found.jpg": "/phonebook-organizer/static/media/not_found.63fa34bd2872f402dc85.jpg",
     "index.html": "/phonebook-organizer/index.html",
     "main.7cda0caf.css.map": "/phonebook-organizer/static/css/main.7cda0caf.css.map",
-    "main.034e1b13.js.map": "/phonebook-organizer/static/js/main.034e1b13.js.map",
+    "main.0474cd95.js.map": "/phonebook-organizer/static/js/main.0474cd95.js.map",
     "905.9baffb0e.chunk.js.map": "/phonebook-organizer/static/js/905.9baffb0e.chunk.js.map",
     "309.49882133.chunk.js.map": "/phonebook-organizer/static/js/309.49882133.chunk.js.map",
     "314.cf32a91b.chunk.js.map": "/phonebook-organizer/static/js/314.cf32a91b.chunk.js.map",
     "461.c73d160c.chunk.js.map": "/phonebook-organizer/static/js/461.c73d160c.chunk.js.map",
-    "825.fe4ec78a.chunk.js.map": "/phonebook-organizer/static/js/825.fe4ec78a.chunk.js.map",
+    "825.73ca0b20.chunk.js.map": "/phonebook-organizer/static/js/825.73ca0b20.chunk.js.map",
     "545.1e9dfeff.chunk.js.map": "/phonebook-organizer/static/js/545.1e9dfeff.chunk.js.map",
     "333.4da1cd1e.chunk.js.map": "/phonebook-organizer/static/js/333.4da1cd1e.chunk.js.map",
     "50.b158aa5c.chunk.js.map": "/phonebook-organizer/static/js/50.b158aa5c.chunk.js.map",
@@ -39,6 +39,6 @@
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.034e1b13.js"
+    "static/js/main.0474cd95.js"
   ]
 }

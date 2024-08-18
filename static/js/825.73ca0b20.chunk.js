@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunkphonebook_organizer=self.webpackChunkphonebook_organizer||[]).push([[825],{4881:(t,e,r)=>{r.r(e),r.d(e,{default:()=>y});var o=r(3050),n=r(9434),i=r(5867);const a=i.zo.div`
+"use strict";(self.webpackChunkphonebook_organizer=self.webpackChunkphonebook_organizer||[]).push([[825],{4881:(t,e,r)=>{r.r(e),r.d(e,{default:()=>y});var o=r(2791),n=r(9434),i=r(3050),a=r(5867);const s=a.zo.div`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -10,11 +10,11 @@
   &:hover {
     transform: scale(1.08);
   }
-`,s=i.zo.b`
+`,c=a.zo.b`
   text-align: initial;
   margin-top: 0;
   margin-bottom: 0;
-`,c=i.zo.button`
+`,d=a.zo.button`
   font-size: 13px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
@@ -30,19 +30,19 @@
     color: buttonborder;
     transform: scale(1.1);
   }
-`,d=i.zo.input`
+`,p=a.zo.input`
   margin-left: 8px;
-  width: 18px;
-  height: 18px;
+  width: 13px;
+  height: 13px;
   cursor: pointer;
-`;var l=r(8427),p=r(184);function u(t){let{id:e,text:r,completed:o}=t;const i=(0,n.I0)();return(0,p.jsxs)(a,{children:[(0,p.jsx)(d,{type:"checkbox",checked:o,onChange:()=>i((0,l.Bl)({taskId:e,completed:o}))}),(0,p.jsx)(s,{children:r}),(0,p.jsx)(c,{type:"button",onClick:()=>{i((0,l.ZK)(e))},children:"Delete"})]})}const x=i.zo.ul`
+`;var l=r(8427),u=r(184);function x(t){let{id:e,text:r,completed:o}=t;const i=(0,n.I0)();return(0,u.jsxs)(s,{children:[(0,u.jsx)(p,{type:"checkbox",checked:o,onChange:()=>i((0,l.Bl)({taskId:e,completed:o}))}),(0,u.jsx)(c,{children:r}),(0,u.jsx)(d,{type:"button",onClick:()=>{i((0,l.ZK)(e))},children:"Delete"})]})}const b=a.zo.ul`
   padding: 0;
   margin: 0;
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 12px;
-`,b=t=>t.tasks.items;function g(){const t=(0,n.v9)(b);return console.log(t),(0,p.jsx)(x,{children:t.map((t=>{let{_id:e,text:r,completed:o}=t;return(0,p.jsx)("li",{children:(0,p.jsx)(u,{id:e,text:r,completed:o})},e)}))})}const m=i.zo.form`
+`,g=t=>t.tasks.items;function m(){const t=(0,n.v9)(g);return(0,u.jsx)(b,{children:t.map((t=>{let{_id:e,text:r,completed:o}=t;return(0,u.jsx)("li",{children:(0,u.jsx)(x,{id:e,text:r,completed:o})},e)}))})}const h=a.zo.form`
   display: flex;
   gap: 13px;
   background-color: rgba(202, 202, 202, 0.8);
@@ -78,11 +78,11 @@
     /* text-align: center; */
     /* background-color: rgba(255, 255, 255, 0); */
   }
-`;function h(){const t=(0,n.I0)();return(0,p.jsxs)(m,{onSubmit:e=>{e.preventDefault();const r=e.currentTarget,o=r.elements.text.value;if(""!==o)return t((0,l.cb)({text:o})),void r.reset();alert("Task cannot be empty. Enter some text!")},children:[(0,p.jsx)("input",{id:"task",name:"text",placeholder:"Enter your task"}),(0,p.jsx)("button",{type:"submit",children:"Add task"})]})}const k=r.p+"static/media/tasks.21e2dc3d93441c04fce3.jpg",f=i.vJ`
+`;function k(){const t=(0,n.I0)();return(0,u.jsxs)(h,{onSubmit:e=>{e.preventDefault();const r=e.currentTarget,o=r.elements.text.value;if(""!==o)return t((0,l.cb)({text:o})),void r.reset();alert("Task cannot be empty. Enter some text!")},children:[(0,u.jsx)("input",{id:"task",name:"text",placeholder:"Enter your task"}),(0,u.jsx)("button",{type:"submit",children:"Add task"})]})}const f=r.p+"static/media/tasks.21e2dc3d93441c04fce3.jpg",j=a.vJ`
 body{
     /* background-image: url('https://kartinki.pics/uploads/posts/2021-07/1625655357_41-kartinkin-com-p-biblioteka-art-art-krasivo-46.jpg'); */
 
-    background-image: url(${k});
+    background-image: url(${f});
 }
-`;var j=r(8346),v=r(2791);function y(){const t=(0,n.I0)();return(0,v.useEffect)((()=>{t((0,l.Jv)())}),[t]),(0,p.jsx)(o.B6,{children:(0,p.jsxs)(j.x,{children:[(0,p.jsx)(o.ql,{children:(0,p.jsx)("title",{children:"Your tasks"})}),(0,p.jsx)(h,{}),(0,p.jsx)(g,{}),(0,p.jsx)(f,{})]})})}}}]);
-//# sourceMappingURL=825.fe4ec78a.chunk.js.map
+`;var v=r(8346);function y(){const t=(0,n.I0)();return(0,o.useEffect)((()=>{t((0,l.Jv)())}),[t]),(0,u.jsx)(i.B6,{children:(0,u.jsxs)(v.x,{children:[(0,u.jsx)(i.ql,{children:(0,u.jsx)("title",{children:"Your tasks"})}),(0,u.jsx)(k,{}),(0,u.jsx)(m,{}),(0,u.jsx)(j,{})]})})}}}]);
+//# sourceMappingURL=825.73ca0b20.chunk.js.map
