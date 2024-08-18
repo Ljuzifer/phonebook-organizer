@@ -17,12 +17,6 @@ const ContactEditPage = lazy(() => import('../pages/ContactEdit'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export const App = () => {
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(refresh());
-  // }, [dispatch]);
-
   return (
     <>
       <Routes>

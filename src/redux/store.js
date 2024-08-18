@@ -13,7 +13,6 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { contactsReducer } from './contacts/contactsSlice';
 import { filterReducer } from './contacts/filterSlice';
-// import { rootReducer } from './rootReducer';
 import { tasksReducer } from './tasks/tasksSlice';
 
 const authPersistConfig = {
@@ -22,17 +21,11 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-// const tastksPersistConfig = {
-//   key: 'tasks',
-//   storage,
-// };
-
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     contacts: contactsReducer,
     filter: filterReducer,
-    // tasks: persistReducer(tastksPersistConfig, rootReducer),
     tasks: tasksReducer,
   },
   devTools: process.env.NODE_ENV === 'development',

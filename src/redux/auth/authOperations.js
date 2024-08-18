@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
-axios.defaults.baseURL = 'http://localhost:3000';
+const { REACT_APP_BASE_RENDER_API_URL } = process.env;
+
+axios.defaults.baseURL = REACT_APP_BASE_RENDER_API_URL;
 
 // Utility to add JWT
 const setToken = token => {
@@ -23,15 +24,11 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/users/registration', credentials);
-      console.log(res.data);
-
       // After successful registration, add the token to the HTTP header
       setToken(res.data.token);
       return res.data;
     } catch (error) {
       console.log(error.message);
-
-      alert('Sorry, such email exists already...');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -44,19 +41,14 @@ export const register = createAsyncThunk(
 export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
-    console.log(credentials);
-
     try {
       const res = await axios.post('/users/login', credentials);
-      console.log(res.data);
-
       // After successful login, add the token to the HTTP header
       setToken(res.data.token);
       return res.data;
     } catch (error) {
-      alert('Sorry, email or password is wrong...');
-      console.log(error);
-
+      // alert('Sorry, email or password is wrong...');
+      console.log(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -83,7 +75,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
 export const refresh = createAsyncThunk('auth/refresh', async (_, thunkAPI) => {
   // Reading the token from the state via getState()
   const state = thunkAPI.getState();
-  const persistedToken = state.auth.token;
+  const persistedToken = state.auth?.token ?? null;
 
   if (persistedToken === null) {
     // If there is no token, exit without performing any request

@@ -28,8 +28,8 @@ export const Wrapper = styled.div`
   }
 
   img {
-    width: 38px;
-    height: 38px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
   }
 `;

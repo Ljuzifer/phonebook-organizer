@@ -5,7 +5,6 @@ import { selectAllTasks } from 'redux/tasks/selectors';
 
 export default function TaskList() {
   const tasks = useSelector(selectAllTasks);
-  console.log(tasks);
 
   return (
     <List>

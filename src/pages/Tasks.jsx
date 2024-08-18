@@ -1,12 +1,10 @@
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import TaskList from 'components/TaskList/TaskList';
 import TaskEditor from 'components/TaskEditor/TaskEditor';
 import { TasksGlobalStyle } from './Tasks.styled';
 import { Box } from 'components/GlobalStyle';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/tasks/operations';
 
 export default function Tasks() {

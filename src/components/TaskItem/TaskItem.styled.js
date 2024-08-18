@@ -40,7 +40,7 @@ export const DelButton = styled.button`
 
 export const Checkbox = styled.input`
   margin-left: 8px;
-  width: 18px;
-  height: 18px;
+  width: 13px;
+  height: 13px;
   cursor: pointer;
 `;
